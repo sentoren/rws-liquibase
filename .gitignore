@@ -25,3 +25,6 @@ replay_pid*
 
 # macos
 *.DS_Store
+
+# liquibase reports
+*.html
