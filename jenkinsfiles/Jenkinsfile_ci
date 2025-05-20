@@ -1,0 +1,51 @@
+pipeline {
+    agent any
+    environment {
+        LIQUIBASE_LICENSE_KEY = credentials(??)
+        LIQUIBASE_COMMAND_URL = "jdbc:postgresql://localhost:5432/dev"
+        LIQUIBASE_COMMAND_CHANGELOG_FILE = "changelog-root.xml"
+        LIQUIBASE_SEARCH_PATH = ??
+        LIQUIBASE_COMMAND_CHECKS_SETTINGS_FILE = ??
+        FLOW_FILE = ??
+        LB_FLOW_ENV = "dev"
+    }
+    stages {
+        stage("Precheck") {
+            steps {
+                sh 'echo "Current PATH: $PATH"'
+                sh 'java -version'
+            }
+        }
+        stage("Liquibase") {
+            steps {
+                sh 'echo ***** Run flow file Jenkinsfile_ci *****'
+                withCredentials([
+                    usernamePassword(
+                        credentialsId: ??, 
+                        usernameVariable: 'LIQUIBASE_COMMAND_USERNAME', 
+                        passwordVariable: 'LIQUIBASE_COMMAND_PASSWORD'
+                    )
+                ]) {
+                    sh 'echo ***** Run flow file *****'
+                    sh 'liquibase flow'
+                }
+            }
+        }
+        stage("Package Project") {
+            steps {
+                sh 'rm liquibase.flowfile.yaml'
+                zip zipFile: "snapshot${BUILD_NUMBER}.zip", archive: false, dir: 'resources/'
+                archiveArtifacts artifacts: "snapshot${BUILD_NUMBER}.zip", fingerprint: true
+            }
+        }
+        stage("Upload to artifactory") {
+            ??
+        }
+    }
+    post {
+        always {
+            sh 'echo ***** Clean up workspace *****'
+            deleteDir()
+        }
+    }
+}
