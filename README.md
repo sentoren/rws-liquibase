@@ -8,11 +8,14 @@ Now that you have a solid understanding of the foundational elements of Liquibas
 3. Prod
 Developers will push their code to a repository which will trigger a deployment to the Dev database. Once all of the code is submitted by developers, the code will be deployed to the Test database. If any of the changesets fail in the Test database, the Test database should be rolled back. If the deployment to the Test database is successful, an archive of the changesets will be created. Deploy successful archive to the Prod database.
 
-## Tools:
+## tools suggested:
 - Jenkins
 - Liquibase
 - GitHub
-- Database of your choice
+- Database of your choice: PostgreSQL
+
+## additional tools:
+- Docker
 
 **Helpful Links**
 - [Efficient Git Branching Strategy Every Developer Should Know](https://betterprogramming.pub/efficient-git-branching-strategy-every-developer-should-know-f1034b1ba041 "‌")
