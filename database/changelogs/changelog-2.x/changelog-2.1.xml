@@ -32,10 +32,10 @@
         </createTable>
     </changeSet>
 
-    <changeSet author="BadAuthor" id="42" context="borkedchange">
+    <!-- <changeSet author="BadAuthor" id="42" context="borkedchange">
         <createTable tableName="broken_table">
             <column name="columnA" type="CHAR(2)"; />
         </createTable>
-    </changeSet>
+    </changeSet> -->
 
 </databaseChangeLog>
