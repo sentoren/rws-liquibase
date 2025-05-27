@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+        http://www.liquibase.org/xml/ns/pro
+        http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd">
+
+    <changeSet author="Liquibase User A" id="10" context="Customer_A">
+        <createTable tableName="province_table">
+            <column name="province" type="CHAR(20)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Liquibase User B" id="20" context="Customer_B">
+        <createTable tableName="state_table">
+            <column name="state" type="CHAR(20)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Liquibase User C" id="30">
+        <createTable tableName="name_table">
+            <column name="fullname" type="CHAR(20)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Liquibase User D" id="40" context="Customer_A OR Customer_B">
+        <createTable  tableName="sales_table">
+            <column name="sales_team" type="CHAR(20)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="BadAuthor" id="42" context="borkedchange">
+        <createTable tableName="broken_table">
+            <column name="columnA" type="CHAR(2)"; />
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>
