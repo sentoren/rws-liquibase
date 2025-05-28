@@ -12,30 +12,10 @@
         http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd">
 
     <changeSet author="Liquibase User A" id="10" context="Customer_A">
-        <createTable tableName="province_table">
+        <createTable tableName="aprovince_table">
             <column name="paovince" type="CHAR(20)"/>
         </createTable>
     </changeSet>
-    <changeSet author="Liquibase User B" id="20" context="Customer_B">
-        <createTable tableName="state_table">
-            <column name="sdate" type="CHAR(20)"/>
-        </createTable>
-    </changeSet>
-    <changeSet author="Liquibase User C" id="30">
-        <createTable tableName="name_table">
-            <column name="fuflname" type="CHAR(20)"/>
-        </createTable>
-    </changeSet>
-    <changeSet author="Liquibase User D" id="40" context="Customer_A OR Customer_B">
-        <createTable  tableName="sales_table">
-            <column name="sass_team" type="CHAR(20)"/>
-        </createTable>
-    </changeSet>
 
-    <!-- <changeSet author="BadAuthor" id="42" context="borkedchange">
-        <createTable tableName="broken_table">
-            <column name="columnA" type="CHAR(2)"; />
-        </createTable>
-    </changeSet> -->
 
 </databaseChangeLog>
